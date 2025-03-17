@@ -1,0 +1,90 @@
+Security
+
+1)Install helmet & express-rate-limit These will add security headers and prevent brute-force attacks.
+2)Prevent NoSQL Injection (Sanitize Inputs) install mongo sanitize.
+3)Validate & Sanitize User Input Install express-validator that will Prevents invalid email formats & weak passwords.
+Rejects invalid data before reaching the database.
+4)Protect Against XSS Attacks Install xss-clean to sanitize inputs:Blocks malicious scripts in user inputs
+5)Secure JWT Authentication :-Users get logged out if JWT is expired.
+Prevents session hijacking with invalid tokens.
+
+✅ Implemented Helmet for security headers.
+✅ Added rate limiting to prevent brute-force attacks.
+✅ Blocked NoSQL injection attacks.
+✅ Sanitized user input to prevent XSS attacks.
+✅ Secured JWT authentication to prevent session hijacking.
+
+
+
+
+ Implement Logging Using Winston:- error login ( provide a unavauilable catagorie and check error.log)
+
+
+
+
+Performance Testing(Artillery.io)
+
+1)change server.js  max 100 to 1000
+2)inperformanceTest.yml  change arriverate to 2  default 5
+In one terminal run the backend and get and other terminal and " npx artillery run tests/performance-test.yml" to run the testing
+
+results 
+
+All VUs finished. Total time: 1 minute, 2 seconds
+
+--------------------------------
+Summary report @ 11:20:30(+0530)
+--------------------------------
+
+http.codes.200: ................................................................ 120
+http.codes.201: ................................................................ 120
+http.codes.403: ................................................................ 120
+http.downloaded_bytes: ......................................................... 4676502
+http.request_rate: ............................................................. 6/sec
+http.requests: ................................................................. 360
+http.response_time:
+  min: ......................................................................... 63
+  max: ......................................................................... 2092
+  mean: ........................................................................ 375.6
+  median: ...................................................................... 333.7
+  p95: ......................................................................... 804.5
+  p99: ......................................................................... 1274.3
+http.response_time.2xx:
+  min: ......................................................................... 188
+  max: ......................................................................... 2092
+  mean: ........................................................................ 458.4
+  median: ...................................................................... 415.8
+  p95: ......................................................................... 804.5
+  p99: ......................................................................... 1022.7
+http.response_time.4xx:
+  min: ......................................................................... 63
+  max: ......................................................................... 1711
+  mean: ........................................................................ 210.1
+  median: ...................................................................... 147
+  p95: ......................................................................... 399.5
+  p99: ......................................................................... 1274.3
+http.responses: ................................................................ 360
+vusers.completed: .............................................................. 120
+vusers.created: ................................................................ 120
+vusers.created_by_name.0: ...................................................... 120
+vusers.failed: ................................................................. 0
+vusers.session_length:
+  min: ......................................................................... 588.7
+  max: ......................................................................... 3207.3
+  mean: ........................................................................ 1133.3
+  median: ...................................................................... 982.6
+  p95: ......................................................................... 2018.7
+  p99: ......................................................................... 2836.2
+
+
+
+
+
+
+
+2)Security Testing(OWASP ZAP)**
+
+3)unit testing
+test cases under the test 
+we can run the test cases using " npm test " 
+ 

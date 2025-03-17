@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.16% </span>
+                <span class="strong">19.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>56/124</span>
+                <span class='fraction'>24/124</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/9</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.16% </span>
+                <span class="strong">19.35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>56/124</span>
+                <span class='fraction'>24/124</span>
             </div>
         
             
@@ -201,38 +201,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -251,7 +219,39 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -324,39 +324,39 @@ const generateRecurringTransactions = async () =&gt; {
     const recurringTransactions = await Transaction.find({
       recurring: { $in: ['daily', 'weekly', 'monthly'] },
       endDate: { $gte: today } // Only process active recurring transactions
-    });
-&nbsp;
-    for (const transaction of recurringTransactions) {
-      let lastTransactionDate = new Date(transaction.date);
-      lastTransactionDate.setHours(0, 0, 0, 0); // Normalize date for accurate comparison
-&nbsp;
-      let nextDate = new Date(lastTransactionDate);
-&nbsp;
-      // Calculate the next scheduled date based on frequency
-      if (transaction.recurring === 'daily') {
-        nextDate.setDate(nextDate.getDate() + 1);
-      } else if (transaction.recurring === 'weekly') <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+    })<span class="branch-0 cbranch-no" title="branch not covered" >;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    for (const transaction of recurringTransactions) {</span>
+<span class="cstat-no" title="statement not covered" >      let lastTransactionDate = new Date(transaction.date);</span>
+<span class="cstat-no" title="statement not covered" >      lastTransactionDate.setHours(0, 0, 0, 0); // Normalize date for accurate comparison</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      let nextDate = new Date(lastTransactionDate);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      // Calculate the next scheduled date based on frequency</span>
+<span class="cstat-no" title="statement not covered" >      if (transaction.recurring === 'daily') {</span>
+<span class="cstat-no" title="statement not covered" >        nextDate.setDate(nextDate.getDate() + 1);</span>
+<span class="cstat-no" title="statement not covered" >      } else if (transaction.recurring === 'weekly') {</span>
 <span class="cstat-no" title="statement not covered" >        nextDate.setDate(nextDate.getDate() + 7);</span>
-      } else if (transaction.recurring === 'monthly') {
-        nextDate.setMonth(nextDate.getMonth() + 1);
-      }
-&nbsp;
-      nextDate.setHours(0, 0, 0, 0); // Normalize again to avoid time component mismatches
-&nbsp;
-      // 🔧 Ensure we don't run transactions if it's not yet the nextDate
-      if (nextDate &gt; today) {
-        console.log(`🛑 Next transaction for category ${transaction.category} is scheduled for ${nextDate.toISOString()} - Not creating yet.`);
-        continue;
-      }
-&nbsp;
-      // 🔧 Check if a transaction for this nextDate already exists to avoid duplicates
-      const existingTransaction = await Transaction.findOne({
-        user: transaction.user,
-        category: transaction.category,
-        type: transaction.type,
-        amount: transaction.amount,
-        date: nextDate // exact date match
-      })<span class="branch-0 cbranch-no" title="branch not covered" >;</span>
+<span class="cstat-no" title="statement not covered" >      } else if (transaction.recurring === 'monthly') {</span>
+<span class="cstat-no" title="statement not covered" >        nextDate.setMonth(nextDate.getMonth() + 1);</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      nextDate.setHours(0, 0, 0, 0); // Normalize again to avoid time component mismatches</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      // 🔧 Ensure we don't run transactions if it's not yet the nextDate</span>
+<span class="cstat-no" title="statement not covered" >      if (nextDate &gt; today) {</span>
+<span class="cstat-no" title="statement not covered" >        console.log(`🛑 Next transaction for category ${transaction.category} is scheduled for ${nextDate.toISOString()} - Not creating yet.`);</span>
+<span class="cstat-no" title="statement not covered" >        continue;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      // 🔧 Check if a transaction for this nextDate already exists to avoid duplicates</span>
+<span class="cstat-no" title="statement not covered" >      const existingTransaction = await Transaction.findOne({</span>
+<span class="cstat-no" title="statement not covered" >        user: transaction.user,</span>
+<span class="cstat-no" title="statement not covered" >        category: transaction.category,</span>
+<span class="cstat-no" title="statement not covered" >        type: transaction.type,</span>
+<span class="cstat-no" title="statement not covered" >        amount: transaction.amount,</span>
+<span class="cstat-no" title="statement not covered" >        date: nextDate // exact date match</span>
+<span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      if (!existingTransaction) {</span>
 <span class="cstat-no" title="statement not covered" >        await Transaction.create({</span>
@@ -375,7 +375,7 @@ const generateRecurringTransactions = async () =&gt; {
 <span class="cstat-no" title="statement not covered" >      } else {</span>
 <span class="cstat-no" title="statement not covered" >        console.log(`⚠️ Transaction already exists for ${nextDate.toISOString()}, skipping duplicate.`);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
-<span class="branch-0 cbranch-no" title="branch not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
 <span class="cstat-no" title="statement not covered" >    console.error('❌ Error generating recurring transactions:', error);</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
@@ -442,7 +442,7 @@ module.exports = { generateRecurringTransactions, processAutoSavings };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-17T01:09:46.582Z
+                at 2025-03-17T01:16:06.340Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
