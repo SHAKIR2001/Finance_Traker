@@ -1,0 +1,25 @@
+config:
+  target: "http://localhost:5000"
+ # Change if using a different port
+  phases:
+    - duration: 60  # Run the test for 60 seconds
+      arrivalRate: 5  # Send 5 new requests per second //make it 2 when performance testing
+  defaults:
+    headers:
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzAzNDg3YjhlYzc0Nzk1YjkwNWIyYiIsImlhdCI6MTc0MTYyMjM4NiwiZXhwIjoxNzQyMjI3MTg2fQ.x2vM-8CJEIGKnboHxksynqX3JGBLc-nMbcmqGvx1srw"  
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/users/all-users"
+      - post:
+          url: "/api/transactions"
+          json:
+            type: "expense"
+            amount: 100
+            category: "Food"
+            date: "2025-03-11T12:00:00Z"
+            description: "Test transaction"
+            currency: "LKR"
+      - get:
+          url: "/api/transactions"

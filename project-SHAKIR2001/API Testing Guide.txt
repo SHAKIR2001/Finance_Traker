@@ -1,0 +1,109 @@
+# 🧪 API Testing Guide - Personal Finance Tracker
+
+This document provides instructions on running **Unit Testing** and **Performance Testing** for the **Personal Finance Tracker API**.
+
+---
+
+## 🛠️ Setup Instructions
+
+1. Ensure you have all dependencies installed:
+
+```bash
+npm install
+```
+
+2. Ensure you have the correct `.env` configuration for MongoDB and JWT.
+
+3. Start the server (if required for testing):
+
+```bash
+npm run dev
+```
+
+---
+
+## ✅ Unit Testing (Jest)
+
+### 📋 What is Covered:
+- **User Registration**
+- **Create Transactions**
+- **Set Budget**
+
+### 📂 Test Directory Structure:
+```
+finance-tracker/
+├── tests/
+│    ├── userController.test.js
+│    ├── transactionController.test.js
+│    └── budgetController.test.js
+└── package.json
+```
+
+### 🚀 Running Unit Tests
+
+1. Ensure Jest is installed in `devDependencies`.
+
+2. Execute the following command to run all unit tests:
+
+```bash
+npm test
+```
+
+3. Run a specific test file:
+
+```bash
+npx jest tests/userController.test.js
+```
+
+4. View test coverage:
+
+```bash
+npx jest --coverage
+```
+
+---
+
+## 📊 Performance Testing (Artillery)
+
+### 📂 Performance Test Structure:
+```
+finance-tracker/
+├── tests/
+│    └── performance-test.yml
+└── package.json
+```
+
+### 🏗️ Install Artillery
+
+Ensure Artillery is installed globally:
+
+```bash
+npm install -g artillery
+```
+
+Or as a local dev dependency:
+
+```bash
+npm install artillery --save-dev
+```
+
+### 🚀 Running Performance Tests
+
+1. Ensure the server is running (`npm run dev`).
+
+2. Run the Artillery performance test:
+
+```bash
+artillery run tests/performance-test.yml
+```
+
+3. Analyze the test output for key metrics (e.g., `requests/sec`, `errors`, and `response time`).
+
+---
+
+## 📌 Notes
+- Ensure rate-limiting is relaxed during performance testing.
+- Update the `performance-test.yml` to reflect the current API routes.
+- Maintain a clean MongoDB database for better performance metrics.
+acking and currency conversion.
+

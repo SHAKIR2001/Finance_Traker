@@ -1,0 +1,280 @@
+# 📄 API Documentation - Personal Finance Tracker
+
+A comprehensive API reference for the **Personal Finance Tracker**, detailing all available endpoints, request formats, and responses.
+
+## 📌 Base URL
+
+```
+http://localhost:5000/api
+```
+
+## 🧑‍🤝‍🧑 User Endpoints
+
+### 1. Register a New User
+
+**POST** `/users/register`
+
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "_id": "user-id",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "token": "your_jwt_token"
+}
+```
+
+### 2. User Login
+
+**POST** `/users/login`
+
+**Request Body:**
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "_id": "user-id",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "token": "your_jwt_token"
+}
+```
+
+### 3. Get User Profile
+
+**GET** `/users/profile`
+
+✅ **Response:**
+```json
+{
+  "_id": "user-id",
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+
+## 💸 Transaction Endpoints
+
+### 1. Create a Transaction
+
+**POST** `/transactions`
+
+**Request Body:**
+```json
+{
+  "type": "expense",
+  "amount": 1000,
+  "category": "Food",
+  "date": "2025-03-01",
+  "description": "Dinner",
+  "currency": "USD"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "_id": "transaction-id",
+  "user": "user-id",
+  "type": "expense",
+  "amount": 1000,
+  "category": "Food",
+  "date": "2025-03-01",
+  "description": "Dinner",
+  "currency": "USD",
+  "convertedAmount": 320
+}
+```
+
+### 2. Get Transactions (With Filters)
+
+**GET** `/transactions`
+
+**Query Parameters:**
+- `type` (optional) - Filter by transaction type ("income" or "expense")
+- `startDate` (optional) - Filter by start date (YYYY-MM-DD)
+- `endDate` (optional) - Filter by end date (YYYY-MM-DD)
+
+✅ **Response:**
+```json
+[{
+  "_id": "transaction-id",
+  "user": "user-id",
+  "type": "expense",
+  "amount": 1000,
+  "category": "Food",
+  "date": "2025-03-01",
+  "description": "Dinner",
+  "currency": "USD",
+  "convertedAmount": 320
+}]
+```
+
+### 3. Update a Transaction
+
+**PUT** `/transactions/:id`
+
+**Request Body:**
+```json
+{
+  "amount": 1200,
+  "description": "Updated Dinner"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "message": "Transaction updated successfully"
+}
+```
+
+### 4. Delete a Transaction
+
+**DELETE** `/transactions/:id`
+
+✅ **Response:**
+```json
+{
+  "message": "Transaction deleted successfully"
+}
+```
+
+## 📊 Budget Endpoints
+
+### 1. Set a Budget
+
+**POST** `/budgets`
+
+**Request Body:**
+```json
+{
+  "category": "Food",
+  "amount": 5000,
+  "period": "monthly",
+  "startDate": "2025-03-01",
+  "endDate": "2025-12-31"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "_id": "budget-id",
+  "user": "user-id",
+  "category": "Food",
+  "amount": 5000,
+  "period": "monthly"
+}
+```
+
+### 2. Get User Budgets
+
+**GET** `/budgets`
+
+✅ **Response:**
+```json
+[{
+  "_id": "budget-id",
+  "user": "user-id",
+  "category": "Food",
+  "amount": 5000,
+  "period": "monthly"
+}]
+```
+
+### 3. Update a Budget
+
+**PUT** `/budgets/:id`
+
+**Request Body:**
+```json
+{
+  "amount": 6000
+}
+```
+
+✅ **Response:**
+```json
+{
+  "message": "Budget updated successfully"
+}
+```
+
+### 4. Delete a Budget
+
+**DELETE** `/budgets/:id`
+
+✅ **Response:**
+```json
+{
+  "message": "Budget deleted successfully"
+}
+```
+
+## 🎯 Goal Endpoints
+
+### 1. Create a Goal
+
+**POST** `/goals`
+
+**Request Body:**
+```json
+{
+  "name": "Save for Vacation",
+  "targetAmount": 5000,
+  "deadline": "2025-12-31",
+  "autoSave": true,
+  "contributionAmount": 100,
+  "saveFrequency": "monthly"
+}
+```
+
+✅ **Response:**
+```json
+{
+  "_id": "goal-id",
+  "user": "user-id",
+  "name": "Save for Vacation",
+  "targetAmount": 5000,
+  "currentAmount": 0,
+  "deadline": "2025-12-31",
+  "autoSave": true,
+  "contributionAmount": 100,
+  "saveFrequency": "monthly"
+}
+```
+
+### 2. Get User Goals
+
+**GET** `/goals`
+
+✅ **Response:**
+```json
+[{
+  "_id": "goal-id",
+  "name": "Save for Vacation",
+  "targetAmount": 5000,
+  "currentAmount": 0,
+  "deadline": "2025-12-31",
+  "autoSave": true
+}]
+```
+
+
+
